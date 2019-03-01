@@ -1,0 +1,24 @@
+.navbar .navbar-brand {
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+.navbar .navbar-brand > .navbar-item,
+.navbar .navbar-brand .navbar-link {
+  display: inline-block;
+}
+
+i.material-icons {
+  vertical-align: text-bottom;
+  color: azure !important;
+}
+
+.timer {
+  position: absolute;
+  width: 30vw;
+  left: 0;
+  right: 0;
+  margin: auto;
+  cursor: default;
+}

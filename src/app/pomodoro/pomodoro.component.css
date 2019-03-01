@@ -1,0 +1,174 @@
+button {
+  outline: none;
+}
+
+.pomodoroContainer {
+  font-family: Helvetica, sans-serif;
+  color: white;
+  background-color: #444;
+  height: calc(100vh - 56px);
+  overflow: hidden;
+  min-width: 400px;
+}
+
+.row {
+  min-width: 500px;
+  height: 20vh;
+}
+
+.settings {
+  margin: auto;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.work {
+  width: 30%;
+  margin: auto;
+  display: inline-block;
+}
+
+.break {
+  width: 30%;
+  margin: auto;
+  display: inline-block;
+}
+
+.btn-time {
+  background: #444;
+  color: white;
+  margin: 0px 5px;
+  border: none;
+  font-size: 1em;
+}
+
+.sub {
+  float: left;
+}
+
+.add {
+  float: right;
+}
+
+.sub,
+.add {
+  width: 20%;
+  font-size: 1.5em;
+}
+
+.value {
+  width: 20%;
+  display: inline-block;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.circle {
+  margin: 0 auto;
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  font-size: 3em;
+  border: 3px solid #7de891;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  z-index: 20;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.circle:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 50%;
+  z-index: 2;
+  border: 4px solid #444;
+}
+
+.circle:hover {
+  transform: scale(1.02);
+}
+
+.pulsate {
+  animation: pulsate 2s ease-out;
+  -webkit-animation: pulsate 2s ease-out;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  opacity: 0.5;
+}
+
+@keyframes pulsate {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes pulsate {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.title {
+  text-align: center;
+  line-height: 180px !important;
+}
+
+.subtitle {
+  line-height: 20px;
+  font-size: 0.7em;
+}
+
+.fill {
+  content: "";
+  position: absolute;
+  background: #7de891;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.btn {
+  width: 80%;
+}
+
+.btn-sound {
+  cursor: pointer;
+}
+
+.btn-time:hover,
+.btn-sound:hover {
+  transform: scale(1.1);
+}
+
+*
+  /deep/
+  .mat-slide-toggle.mat-checked:not(.mat-disabled)
+  .mat-slide-toggle-bar {
+  background-color: #009738;
+}
+
+*
+  /deep/
+  .mat-slide-toggle.mat-checked:not(.mat-disabled)
+  .mat-slide-toggle-bar
+  .mat-slide-toggle-thumb {
+  background-color: green;
+}

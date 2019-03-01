@@ -1,0 +1,83 @@
+<div class="pomodoroContainer">
+  <div class="row">
+    <div class="col-md-6 settings">
+      <div class="col-md-6 work">
+        <div class="label">
+          WORK
+        </div>
+        <div>
+          <button class="btn-time sub" (click)="setWorkTime(-1)">-</button>
+          <div class="value">{{ workTime | number: "2.0" }}</div>
+          <button class="btn-time add" (click)="setWorkTime(1)">+</button>
+        </div>
+        <div class="subtitle">minutes</div>
+      </div>
+      <div class="col-md-6 break">
+        <div class="label">
+          BREAK
+        </div>
+        <div>
+          <button class="btn-time sub" (click)="setBreakTime(-1)">-</button>
+          <div class="value">{{ breakTime | number: "2.0" }}</div>
+          <button class="btn-time add" (click)="setBreakTime(1)">+</button>
+        </div>
+        <div class="subtitle">minutes</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="height: auto;">
+    <div class="circle" (click)="togglePomodoro()">
+      <p class="title" [ngClass]="!isPaused ? 'pulsate' : ''">
+        {{ currentSession }}
+      </p>
+      <p>{{ minutes }}:{{ seconds | number: "2.0" }}</p>
+      <span
+        [ngStyle]="{ height: fillHeight, background: fillColor }"
+        class="fill"
+      ></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 settings">
+      <div class="col-md-12" style="margin-bottom: 20px;">
+        <i
+          class="material-icons md-18 btn-sound"
+          (click)="toggleSound()"
+          title="Notification Sound"
+          [ngStyle]="{ color: !muteSound ? 'rgb(77, 224, 131)' : '#ec5353' }"
+          appTippy
+          [tippyOptions]="{
+            arrow: true,
+            placement: 'top'
+          }"
+          >{{ muteSound ? "volume_off" : "volume_up" }}
+        </i>
+      </div>
+      <div class="col-md-6 work">
+        <button
+          [ngClass]="isPaused ? 'btn btn-success' : 'btn btn-danger'"
+          (click)="togglePomodoro()"
+        >
+          {{
+            isPaused && currentTime > 0
+              ? "RESUME"
+              : isPaused
+              ? "START"
+              : "PAUSE"
+          }}
+        </button>
+      </div>
+      <div class="col-md-6 break">
+        <button
+          [disabled]="!isPaused"
+          (click)="resetPomodoro()"
+          class="btn btn-secondary"
+        >
+          RESET
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

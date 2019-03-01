@@ -1,0 +1,29 @@
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-dark"
+  style="position:relative"
+>
+  <a
+    class="navbar-brand"
+    href="#"
+    style="float:left;left:0;width: auto !important"
+  >
+    <img src="../../assets/images/icon.png" width="30" height="30" alt="" />
+    Pomodoro
+  </a>
+  <div class="navbar-brand timer">
+    <i
+      class="material-icons md-18"
+      title="Total Time"
+      appTippy
+      [tippyOptions]="{
+        arrow: true,
+        placement: 'left'
+      }"
+      >access_time
+    </i>
+    {{ this.hours | number: "2.0" }}:{{ this.minutes | number: "2.0" }}:{{
+      this.seconds | number: "2.0"
+    }}
+  </div>
+</nav>
+<app-pomodoro (messageEvent)="receiveMessage($event)"></app-pomodoro>
